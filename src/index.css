@@ -1,0 +1,67 @@
+/* Base button styles for all buttons */
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for all buttons */
+button:hover {
+  background-color: #ffeb3b; 
+  transform: scale(1.05);
+}
+
+/* Filter buttons hover effect (All, Completed, Pending) */
+.filters button {
+  margin: 5px;
+  background-color: #007bff; 
+}
+
+.filters button:hover {
+  background-color: #ffeb3b; 
+}
+
+/* Specific button for Add Task */
+.add-task-btn {
+  background-color: #007bff; 
+}
+
+.add-task-btn:hover {
+  background-color: #ffeb3b; 
+}
+
+/* Task action buttons */
+.task-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+/* Keep the hover effect for other buttons */
+button.edit-btn {
+  background-color: #28a745;
+}
+
+button.edit-btn:hover {
+  background-color: #ffeb3b; 
+}
+
+button.delete-btn {
+  background-color: #dc3545;
+}
+
+button.delete-btn:hover {
+  background-color: #ffeb3b; 
+}
+
+button.clear-btn {
+  background-color: #dc3545;
+}
+
+button.clear-btn:hover {
+  background-color: #ffeb3b; 
+}

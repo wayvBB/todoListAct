@@ -1,0 +1,110 @@
+/* General body styles */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s ease; /* Add transition for smooth theme change */
+}
+
+/* Light theme */
+body.light {
+  background-color: pink;
+}
+
+/* Dark theme */
+body.dark {
+  background-color: #121212; /* Dark background color */
+}
+
+/* Outer container */
+.outer {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title container */
+.title-container {
+  position: relative;
+}
+
+/* Theme toggle button placed outside the todo list */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.theme-toggle:hover {
+  background: #ffeb3b;
+}
+
+.todo-list {
+  background-color: white; /* Keep background white for both themes */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  max-width: 100%;
+}
+
+input {
+  padding: 8px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f8f9fa;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+  max-width: calc(100% - 50px);
+  word-break: break-word;
+}
+
+.task-content span {
+  display: block;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.completed span {
+  text-decoration: line-through;
+  font-style: italic;
+  color: gray;
+}
