@@ -64,14 +64,20 @@ export default function TodoList() {
     }
   };
 
-  const filteredTasks = taskList.filter((task, index) => {
+  // Create a mapping of which tasks are filtered
+  const filteredTasksMap = taskList.map((task, index) => {
     if (filter === "completed") {
       return completedTasks.includes(index);
     } else if (filter === "pending") {
       return !completedTasks.includes(index);
     }
-    return true;
+    return true; // for "all" filter
   });
+
+  // Get the filtered tasks and their original indices
+  const filteredTasksWithIndices = taskList
+    .map((task, index) => ({ task, originalIndex: index }))
+    .filter((item, index) => filteredTasksMap[index]);
 
   return (
     <div className="todo-list">
@@ -97,23 +103,23 @@ export default function TodoList() {
       </div>
 
       <ul>
-        {filteredTasks.map((task, index) => (
-          <li key={index}>
+        {filteredTasksWithIndices.map(({ task, originalIndex }, index) => (
+          <li key={originalIndex}>
             <div className="task-content">
               <input
                 type="checkbox"
-                checked={completedTasks.includes(index)}
-                onChange={() => toggleComplete(index)}
+                checked={completedTasks.includes(originalIndex)}
+                onChange={() => toggleComplete(originalIndex)}
               />
-              <span className={completedTasks.includes(index) ? "completed" : ""}>
+              <span className={completedTasks.includes(originalIndex) ? "completed" : ""}>
                 {task}
               </span>
             </div>
             <div className="task-buttons">
-              <button className="edit-btn" onClick={() => editTask(index)}>
+              <button className="edit-btn" onClick={() => editTask(originalIndex)}>
                 Edit
               </button>
-              <button className="delete-btn" onClick={() => deleteTask(index)}>
+              <button className="delete-btn" onClick={() => deleteTask(originalIndex)}>
                 Delete
               </button>
             </div>
